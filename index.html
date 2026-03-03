@@ -6,11 +6,12 @@
 <title>UX for AI Guide — Tu Viaje hacia el AI Design</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
 <style>
 /* ─── TOKENS ─── */
 :root {
   --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-display: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   /* Neutral */
   --bg:        #FFFFFF;
   --page-bg:   #FAFAFA;
@@ -20,13 +21,13 @@
   --text-sec:  #6B7280;
   --text-sm:   #9CA3AF;
   /* Purple — creative / hero */
-  --pu-lt:  #C9B8FF;
+  --pu-lt:  #9d87e3;
   --pu-md:  #7A67F8;
-  --pu-dk:  #3B2E8F;
+  --pu-dk:  #633d8f;
   /* Blue — structure / roadmap */
   --bl-lt:  #7FAEFF;
   --bl-md:  #4A86F7;
-  --bl-dk:  #1D3E8C;
+  --bl-dk:  #df5900;
   /* Green — collections / recursos */
   --gr-lt:  #A7D6C5;
   --gr-md:  #4C9C7D;
@@ -40,8 +41,24 @@
   --pa-wm:  #EFE7D6;
   --pa-bg:  #E2D6BF;
   /* Dark — editorial dark */
-  --dk-sf:  #111316;
+  --dk-sf:  #4e3879;
   --dk-wm:  #1B1E23;
+  /* ── Craft section backgrounds ── */
+  --pw:     #CDD8FF;   /* periwinkle */
+  --pw-lt:  #E8EEFF;   /* periwinkle light */
+  --pt:     #FFD5BE;   /* peach */
+  --pt-lt:  #FFF0E6;   /* peach light */
+  --mn:     #7eb599;   /* mint */
+  --mn-lt:  #E5F7EF;   /* mint light */
+  --bt:     #FFE9A0;   /* butter */
+  --bt-lt:  #FFFBEC;   /* butter light */
+  --sg:     #D4E8CB;   /* sage */
+  /* ── Craft accent colors ── */
+  --ac-blue:   #2D4FD6;
+  --ac-coral:  #D44C2A;
+  --ac-teal:   #1A8060;
+  --ac-amber:  #B8720A;
+  --ac-forest: #1F5C3A;
   /* Components */
   --sh-card:  0px 2px 8px rgba(0,0,0,0.04);
   --sh-hover: 0px 6px 18px rgba(0,0,0,0.06);
@@ -55,7 +72,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body { font-family: var(--font); font-size: 16px; line-height: 1.6; color: var(--text); background: var(--page-bg); overflow-x: hidden; }
-::selection { background: rgba(201,184,255,0.3); }
+::selection { background: rgb(56, 32, 135); }
 ul { list-style: none; }
 button { cursor: pointer; font-family: var(--font); }
 a { color: var(--pu-md); }
@@ -111,7 +128,7 @@ section { padding: 96px 0; }
   font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
   margin-bottom: 12px;
 }
-.section-h2 { font-size: 28px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 8px; }
+.section-h2 { font-size: clamp(24px, 3vw, 32px); font-weight: 700; font-family: var(--font-display); letter-spacing: -0.01em; margin-bottom: 10px; }
 .section-lead { font-size: 16px; color: var(--text-sec); max-width: 600px; margin-bottom: 48px; line-height: 1.65; }
 
 /* Reveal */
@@ -174,7 +191,7 @@ section { padding: 96px 0; }
    HERO — Purple palette
 ═══════════════════════════════════════ */
 #hero {
-  background: var(--pu-dk);
+  background: #39227e;
   min-height: 100vh; display: flex; align-items: center; justify-content: center;
   text-align: center; padding: 80px 32px 64px;
   position: relative; overflow: hidden;
@@ -186,30 +203,28 @@ section { padding: 96px 0; }
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 200px 200px;
 }
-/* Soft radial blobs */
-.h-blob { position: absolute; border-radius: 50%; pointer-events: none; }
-.h-blob-1 { width: 700px; height: 700px; background: radial-gradient(circle, rgba(122,103,248,0.4) 0%, transparent 70%); top: -250px; right: -120px; }
-.h-blob-2 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(201,184,255,0.15) 0%, transparent 70%); bottom: -100px; left: -80px; }
+/* No blobs */
+.h-blob { display: none; }
 /* SVG mountain shapes */
 .h-mountains { position: absolute; bottom: 0; left: 0; right: 0; pointer-events: none; z-index: 1; }
 .hero-content { position: relative; z-index: 2; max-width: 740px; }
 
 .h-eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
-  background: rgba(201,184,255,0.14); border: 1px solid rgba(201,184,255,0.28);
-  color: var(--pu-lt); font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+  background: rgba(127,170,255,0.14); border: 1px solid rgba(127,170,255,0.3);
+  color: #9DBEFF; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
   padding: 6px 14px; border-radius: 999px; margin-bottom: 28px;
   opacity: 0; transform: translateY(12px); animation: fadeUp 0.6s 0.15s forwards;
 }
-.h-eyebrow::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--pu-lt); }
+.h-eyebrow::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: #9DBEFF; }
 .h-h1 {
-  font-size: clamp(36px, 5.5vw, 56px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.1;
+  font-size: clamp(36px, 5.5vw, 56px); font-weight: 700; font-family: var(--font-display);
+  letter-spacing: -0.03em; line-height: 1.1;
   color: #fff; margin-bottom: 20px;
   opacity: 0; transform: translateY(16px); animation: fadeUp 0.7s 0.3s forwards;
 }
 .h-h1 .accent {
-  background: linear-gradient(90deg, var(--pu-lt), #E4DAFF);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  color: var(--pu-lt);
 }
 .h-sub {
   font-size: 16px; line-height: 26px; color: rgba(255,255,255,0.6); max-width: 500px; margin: 0 auto 36px;
@@ -248,7 +263,6 @@ section { padding: 96px 0; }
    PARTIDA — Neutral / FAFAFA
 ═══════════════════════════════════════ */
 #partida { background: var(--page-bg); }
-.eyebrow-pu { color: var(--pu-dk); }
 .partida-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
 .qcard {
   background: var(--bg); border: 1px solid var(--divider); border-radius: var(--r-card);
@@ -266,7 +280,7 @@ section { padding: 96px 0; }
 .qcard-items li::before { content: '—'; color: var(--text-sm); flex-shrink: 0; }
 .superpower-strip {
   grid-column: 1 / -1;
-  background: var(--pu-dk); border-radius: var(--r-card);
+  background: #1A2A5E; border-radius: var(--r-card);
   padding: 28px 32px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
   position: relative; overflow: hidden;
 }
@@ -275,34 +289,34 @@ section { padding: 96px 0; }
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 200px;
 }
-.superpower-strip h3 { font-size: 20px; font-weight: 600; color: var(--pu-lt); margin-bottom: 6px; }
+.superpower-strip h3 { font-size: 20px; font-weight: 600; color: #9DBEFF; margin-bottom: 6px; font-family: var(--font-display); }
 .superpower-strip p { font-size: 14px; line-height: 22px; color: rgba(255,255,255,0.62); max-width: 500px; }
 
 /* ═══════════════════════════════════════
    AI DESIGN — White + blue-dark quote
 ═══════════════════════════════════════ */
-#aidesign { background: var(--bg); border-top: 1px solid var(--divider); border-bottom: 1px solid var(--divider); }
-.eyebrow-bl { color: var(--pu-dk); }
+#aidesign { background: #E0F2FF; border-top: 1px solid #A8D8F0; border-bottom: 1px solid #A8D8F0; }
+.eyebrow-bl { color: #1A7AB8; }
 .mshift-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 16px; }
 .mcard {
   background: var(--bg); border: 1px solid var(--divider); border-radius: var(--r-card);
   padding: 24px; box-shadow: var(--sh-card); transition: box-shadow var(--t), transform var(--t);
 }
 .mcard:hover { box-shadow: var(--sh-hover); transform: translateY(-2px); }
-.mcard-num { font-size: 36px; font-weight: 600; color: var(--divider); line-height: 1; margin-bottom: 12px; letter-spacing: -0.03em; }
+.mcard-num { font-size: 36px; font-weight: 700; font-family: var(--font-display); color: var(--divider); line-height: 1; margin-bottom: 12px; letter-spacing: -0.03em; }
 .mcard-arrow { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 13px; font-weight: 500; }
 .ms-from { color: var(--text-sm); }
 .ms-to { color: var(--pu-md); }
 .mcard h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
 .mcard p { font-size: 14px; line-height: 22px; color: var(--text-sec); margin-bottom: 12px; }
 .mcard-insight {
-  padding: 10px 14px; background: #F5F3FF; border-left: 3px solid var(--pu-md);
-  border-radius: 0 8px 8px 0; font-size: 13px; line-height: 20px; color: #4B3FA0;
+  padding: 10px 14px; background: #DCF0FF; border-left: 3px solid #4A90D0;
+  border-radius: 0 8px 8px 0; font-size: 13px; line-height: 20px; color: #1A5A8A;
 }
-.mcard-insight strong { color: var(--pu-md); }
-/* Central quote — purple warm */
+.mcard-insight strong { color: #1A5A8A; }
+/* Central quote — vivid indigo */
 .central-q {
-  background: var(--pu-dk); border-radius: var(--r-card); padding: 40px; text-align: center;
+  background: #1a3228;); border-radius: var(--r-card); padding: 40px; text-align: center;
   position: relative; overflow: hidden;
 }
 .central-q::after {
@@ -310,14 +324,50 @@ section { padding: 96px 0; }
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 200px;
 }
-.cq-blob { position: absolute; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(201,184,255,0.22) 0%, transparent 70%); top: -150px; right: -100px; pointer-events: none; }
-.central-q blockquote { font-size: 20px; font-weight: 500; line-height: 1.55; color: #fff; margin-bottom: 12px; position: relative; z-index: 1; }
-.central-q cite { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--pu-lt); font-style: normal; position: relative; z-index: 1; }
+.cq-blob { display: none; }
+.central-q blockquote { font-size: 20px; font-weight: 500; font-family: var(--font-display); line-height: 1.55; color: #fff; margin-bottom: 12px; position: relative; z-index: 1; }
+.central-q cite { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(190, 255, 200, 0.75); font-style: normal; position: relative; z-index: 1; }
+
+/* ═══════════════════════════════════════
+   SHIFTS — El cambio de rol
+═══════════════════════════════════════ */
+#shifts { background: #bcd7ff; border-top: 1px solid #d6f3fe; border-bottom: 1px solid #d6e9fe; }
+.eyebrow-vi { color: #3a55ed; }
+.shifts-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 40px; }
+.shift-card {
+  background: var(--bg); border: 1px solid var(--divider); border-radius: var(--r-card);
+  padding: 24px; box-shadow: var(--sh-card); transition: box-shadow var(--t), transform var(--t);
+}
+.shift-card:hover { box-shadow: var(--sh-hover); transform: translateY(-2px); }
+.shift-num { font-size: 36px; font-weight: 700; font-family: var(--font-display); color: var(--divider); line-height: 1; margin-bottom: 12px; letter-spacing: -0.03em; }
+.shift-arrow { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: 13px; font-weight: 500; flex-wrap: wrap; }
+.sh-from { color: var(--text-sm); }
+.sh-to { color: #3a55ed; }
+.shift-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+.shift-card p { font-size: 14px; line-height: 22px; color: var(--text-sec); margin-bottom: 12px; }
+.shift-card ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.shift-card ul li { font-size: 13px; line-height: 20px; color: var(--text-sec); padding-left: 16px; position: relative; }
+.shift-card ul li::before { content: '→'; position: absolute; left: 0; color: #3a55ed; }
+.shift-layers { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+.shift-layer { display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; border-radius: 8px; }
+.shift-layer.cap { background: #EDE9FE; }
+.shift-layer.lim { background: #FEE2E2; }
+.shift-layer.ifc { background: #E0F2FE; }
+.shift-layer-n { font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; min-width: 80px; }
+.shift-layer.cap .shift-layer-n { color: #7C3AED; }
+.shift-layer.lim .shift-layer-n { color: #c53f3f; }
+.shift-layer.ifc .shift-layer-n { color: #5cb5e2; }
+.shift-layer p { font-size: 13px; line-height: 19px; color: var(--text-sec); margin: 0; }
+.shift-trust-list { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+.shift-trust-item { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: var(--text-sec); line-height: 19px; padding: 8px 10px; background: #d6e4f8
+  ; border-radius: 8px; }
+.shift-trust-item::before { content: '?'; display: flex; align-items: center; justify-content: center; width: 20px; height: 20px; min-width: 20px; background: #3a55ed; color: #fff; font-weight: 700; border-radius: 50%; font-size: 11px; }
 
 /* ═══════════════════════════════════════
    PILARES — Neutral
 ═══════════════════════════════════════ */
 #pilares { background: var(--page-bg); }
+.eyebrow-pu { color: var(--ac-teal); }
 .pilares-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
 .pilar-tab {
   height: 36px; padding: 0 14px; border-radius: 8px;
@@ -338,12 +388,12 @@ section { padding: 96px 0; }
   display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
   padding: 3px 10px; border-radius: 6px; margin-bottom: 10px;
 }
-.bp { background: #F0EDFF; color: var(--pu-dk); }
-.bb { background: #EDF3FF; color: var(--bl-dk); }
-.bg { background: #EAF5F0; color: var(--gr-dk); }
-.bw { background: #FFF8EA; color: #7A5A0A; }
+.bp { background: var(--pw-lt); color: var(--ac-blue); }
+.bb { background: var(--mn-lt); color: var(--ac-teal); }
+.bg { background: var(--mn-lt); color: var(--ac-forest); }
+.bw { background: #C0F5FF; color: #0A5A6E; }
 .bd { background: var(--divider); color: var(--text-sec); }
-.panel-h3 { font-size: 24px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 10px; }
+.panel-h3 { font-size: 24px; font-weight: 600; font-family: var(--font-display); letter-spacing: -0.02em; margin-bottom: 10px; }
 .panel-desc { font-size: 15px; line-height: 24px; color: var(--text-sec); margin-bottom: 20px; }
 .next-step { background: var(--page-bg); border: 1px solid var(--border); border-radius: var(--r-card); padding: 16px 20px; }
 .next-step h4 { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-sec); margin-bottom: 10px; }
@@ -358,7 +408,7 @@ section { padding: 96px 0; }
 .ccard p { font-size: 13px; line-height: 20px; color: var(--text-sec); }
 .ccard p strong { color: var(--text); }
 .pblock { background: var(--dk-wm); border-radius: 8px; padding: 12px 16px; margin-top: 8px; font-family: 'Fira Mono','Courier New',monospace; font-size: 12px; line-height: 20px; color: #94a3b8; }
-.pk { color: #7FAEFF; } .pv { color: #86efac; }
+.pk { color: #7FAEFF; } .pv { color: #fcf400; }
 /* Chat demo */
 .chat-demo { background: var(--page-bg); border: 1px solid var(--border); border-radius: var(--r-card); padding: 20px; margin-top: 20px; }
 .chat-label { font-size: 11px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--text-sm); margin-bottom: 14px; }
@@ -367,7 +417,7 @@ section { padding: 96px 0; }
 .bubble { max-width: 75%; padding: 9px 14px; border-radius: 12px; font-size: 13px; line-height: 20px; }
 .b-user { background: var(--text); color: #fff; border-top-right-radius: 4px; }
 .b-asst { background: var(--bg); border: 1px solid var(--border); color: var(--text); border-top-left-radius: 4px; }
-.b-sys { background: #EAF5F0; border: 1px solid #C7E5D8; color: var(--gr-dk); font-size: 12px; width: 100%; max-width: 100%; }
+.b-sys { background: #31be7f; border: 1px solid #1a3228; color: var(--gr-dk); font-size: 12px; width: 100%; max-width: 100%; }
 .typing { display: flex; gap: 4px; align-items: center; padding: 10px 14px; background: var(--bg); border: 1px solid var(--border); border-radius: 12px; border-top-left-radius: 4px; width: fit-content; }
 .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--text-sm); animation: blink 1.2s infinite; }
 .dot:nth-child(2) { animation-delay: 0.2s; }
@@ -377,18 +427,16 @@ section { padding: 96px 0; }
 /* ═══════════════════════════════════════
    ROADMAP — Blue dark palette
 ═══════════════════════════════════════ */
-#roadmap { background: var(--pu-dk); position: relative; overflow: hidden; }
+#roadmap { background: #1a3228; position: relative; overflow: hidden; }
 #roadmap::after {
   content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0.07;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 200px;
 }
-.rm-blob { position: absolute; border-radius: 50%; pointer-events: none; }
-.rm-blob-1 { width: 600px; height: 600px; background: radial-gradient(circle, rgba(201,184,255,0.2) 0%, transparent 70%); top: -200px; right: -100px; }
-.rm-blob-2 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(201,184,255,0.12) 0%, transparent 70%); bottom: -150px; left: -100px; }
+.rm-blob { display: none; }
 #roadmap .section-h2 { color: #fff; }
 #roadmap .section-lead { color: rgba(255,255,255,0.55); }
-#roadmap .eyebrow { color: var(--pu-lt); }
+#roadmap .eyebrow { color: var(--gr-lt); }
 .roadmap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; position: relative; z-index: 1; }
 .pcard {
   background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.11); border-radius: var(--r-card); padding: 24px;
@@ -410,19 +458,19 @@ section { padding: 96px 0; }
 /* ═══════════════════════════════════════
    REFLEXIÓN — Paper warm palette
 ═══════════════════════════════════════ */
-#reflexion { background: var(--pa-wm); border-top: 1px solid var(--pa-bg); border-bottom: 1px solid var(--pa-bg); }
-#reflexion .eyebrow { color: var(--pu-md); }
+#reflexion { background: #ededed; border-top: 1px solid #B8A4F8; border-bottom: 1px solid #B8A4F8; }
+#reflexion .eyebrow { color: #6B45D0; }
 .refl-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 24px; }
-.rcard { background: rgba(255,255,255,0.72); border: 1px solid var(--pa-bg); border-radius: var(--r-card); padding: 24px; box-shadow: var(--sh-card); transition: box-shadow var(--t), transform var(--t); }
+.rcard { background: rgba(255,255,255,0.85); border: 1px solid #C0ADFA; border-radius: var(--r-card); padding: 24px; box-shadow: var(--sh-card); transition: box-shadow var(--t), transform var(--t); }
 .rcard:hover { box-shadow: var(--sh-hover); transform: translateY(-2px); }
 .rcard-icon { font-size: 24px; margin-bottom: 14px; display: block; }
 .rcard h3 { font-size: 15px; font-weight: 600; margin-bottom: 12px; }
 .rcard-qs li { font-size: 13px; line-height: 18px; color: var(--text-sec); padding: 7px 0; border-bottom: 1px solid var(--pa-bg); display: flex; gap: 8px; align-items: flex-start; }
 .rcard-qs li:last-child { border-bottom: none; }
-.rcard-qs li::before { content: '?'; font-weight: 600; color: var(--pu-md); flex-shrink: 0; font-size: 12px; margin-top: 1px; }
+.rcard-qs li::before { content: '?'; font-weight: 600; color: #6B45D0; flex-shrink: 0; font-size: 12px; margin-top: 1px; }
 /* Journal */
-.journal-wrap { background: rgba(255,255,255,0.72); border: 1px solid var(--pa-bg); border-radius: var(--r-card); overflow: hidden; box-shadow: var(--sh-card); }
-.journal-head { padding: 16px 24px; border-bottom: 1px solid var(--pa-bg); display: flex; align-items: center; gap: 10px; }
+.journal-wrap { background: rgba(255,255,255,0.85); border: 1px solid #C0ADFA; border-radius: var(--r-card); overflow: hidden; box-shadow: var(--sh-card); }
+.journal-head { padding: 16px 24px; border-bottom: 1px solid #C0ADFA; display: flex; align-items: center; gap: 10px; }
 .jdot { width: 8px; height: 8px; border-radius: 50%; background: var(--gr-md); }
 .journal-head h3 { font-size: 15px; font-weight: 600; }
 .journal-body { padding: 24px; }
@@ -430,17 +478,17 @@ section { padding: 96px 0; }
 .jlabel { font-size: 11px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--text-sm); margin-bottom: 6px; }
 .jta { width: 100%; background: rgba(255,255,255,0.8); border: 1px solid var(--pa-bg); border-radius: var(--r-in); padding: 10px 14px; font-family: var(--font); font-size: 13px; color: var(--text); resize: none; height: 80px; outline: none; transition: border-color var(--t); }
 .jta::placeholder { color: var(--text-sm); }
-.jta:focus { border-color: var(--pu-md); box-shadow: 0 0 0 2px rgba(122,103,248,0.12); }
+.jta:focus { border-color: #6B45D0; box-shadow: 0 0 0 2px rgba(107,69,208,0.12); }
 
 /* ═══════════════════════════════════════
    RECURSOS — Green palette (collections)
 ═══════════════════════════════════════ */
-#recursos { background: #EFF8F4; border-top: 1px solid #C8E5D8; }
-#recursos .eyebrow { color: var(--gr-md); }
+#recursos { background: var(--pw-lt); border-top: 1px solid #B0C4FF; }
+#recursos .eyebrow { color: var(--ac-blue); }
 .recursos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
 .recs-card { background: var(--bg); border: 1px solid var(--divider); border-radius: var(--r-card); padding: 20px 24px; box-shadow: var(--sh-card); transition: box-shadow var(--t), transform var(--t); }
 .recs-card:hover { box-shadow: var(--sh-hover); transform: translateY(-2px); }
-.recs-cat { font-size: 11px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--gr-md); margin-bottom: 8px; }
+.recs-cat { font-size: 11px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ac-blue); margin-bottom: 8px; }
 .recs-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 12px; }
 .recs-items li { font-size: 13px; line-height: 18px; color: var(--text-sec); padding: 7px 0; border-bottom: 1px solid var(--divider); }
 .recs-items li:last-child { border-bottom: none; }
@@ -455,9 +503,9 @@ section { padding: 96px 0; }
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 200px;
 }
-.cl-blob { position: absolute; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(59,46,143,0.35) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%,-50%); pointer-events: none; }
+.cl-blob { display: none; }
 .cl-inner { max-width: 680px; margin: 0 auto; position: relative; z-index: 1; }
-.cl-inner blockquote { font-size: 22px; font-weight: 500; line-height: 1.55; color: rgba(255,255,255,0.88); margin-bottom: 16px; }
+.cl-inner blockquote { font-size: 22px; font-weight: 500; font-family: var(--font-display); line-height: 1.55; color: rgba(255,255,255,0.88); margin-bottom: 16px; }
 .cl-inner blockquote em { color: var(--pu-lt); font-style: normal; }
 .cl-inner > p { font-size: 16px; color: rgba(255,255,255,0.4); margin-bottom: 36px; }
 .cl-divider { width: 40px; height: 2px; background: rgba(255,255,255,0.12); margin: 48px auto 20px; border-radius: 2px; }
@@ -473,6 +521,110 @@ section { padding: 96px 0; }
 
 /* ─── FOOTER ─── */
 footer { background: var(--dk-wm); border-top: 1px solid rgba(255,255,255,0.05); padding: 24px 32px; text-align: center; font-size: 12px; color: rgba(255,255,255,0.22); }
+
+/* ═══════════════════════════════════════
+   ANTES DE EMPEZAR — Soft lavender editorial
+═══════════════════════════════════════ */
+#antes { background: var(--pw); padding: 88px 32px; }
+.antes-inner { max-width: 820px; margin: 0 auto; }
+.antes-kicker {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ac-blue); margin-bottom: 20px; display: block;
+}
+.antes-headline {
+  font-family: var(--font-display); font-size: clamp(28px, 4vw, 44px);
+  font-weight: 700; letter-spacing: -0.025em; line-height: 1.12;
+  color: #1A2A5E; margin-bottom: 16px;
+}
+.antes-sub {
+  font-size: 16px; color: var(--text-sec); margin-bottom: 28px; line-height: 1.6;
+}
+.sentir-row {
+  display: flex; flex-wrap: wrap; gap: 9px; margin-bottom: 48px;
+}
+.sentir-tag {
+  padding: 7px 16px; border-radius: 100px; font-size: 13px; font-weight: 500;
+  background: rgba(45,79,214,0.10); color: var(--ac-blue);
+  border: 1px solid rgba(45,79,214,0.22);
+}
+.truths-grid {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-bottom: 32px;
+}
+.truth-card {
+  background: #fff; border-radius: 14px; padding: 22px 24px;
+  border: 1px solid rgba(0,0,0,0.05); box-shadow: var(--sh-card);
+}
+.truth-num {
+  font-family: var(--font-display); font-size: 34px; font-weight: 700;
+  color: rgba(45,79,214,0.28); line-height: 1; margin-bottom: 10px;
+}
+.truth-card p { font-size: 14px; line-height: 1.65; color: var(--text-sec); }
+.truth-card p strong { color: var(--text); }
+.antes-callout {
+  font-size: 14px; color: var(--pu-dk); font-style: italic;
+  opacity: 0.75; margin-top: 4px;
+}
+
+/* ── UX for AI vs AI for UX comparison ── */
+.ux-ai-wrap { margin-top: 56px; border-radius: 16px; overflow: hidden; border: 1px solid var(--divider); }
+.ux-ai-head { padding: 18px 28px; background: var(--page-bg); border-bottom: 1px solid var(--divider); }
+.ux-ai-head p { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-sm); }
+.ux-ai-cols { display: grid; grid-template-columns: 1fr 1fr; }
+.ux-ai-col { padding: 28px 30px; }
+.ux-ai-col:first-child { border-right: 1px solid var(--divider); }
+.ux-ai-badge {
+  display: inline-block; padding: 4px 12px; border-radius: 999px; font-size: 11px; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 14px;
+}
+.badge-tool { background: rgba(107,114,128,0.1); color: var(--text-sec); }
+.badge-system { background: rgba(122,103,248,0.12); color: var(--pu-dk); }
+.ux-ai-col h4 {
+  font-family: var(--font-display); font-size: 19px; font-weight: 600;
+  color: var(--text); margin-bottom: 10px; letter-spacing: -0.01em;
+}
+.ux-ai-col:last-child h4 { color: var(--pu-dk); }
+.ux-ai-col > p { font-size: 13px; color: var(--text-sec); line-height: 1.65; margin-bottom: 16px; }
+.ux-ai-list { list-style: none; padding: 0; }
+.ux-ai-list li {
+  font-size: 13px; color: var(--text-sec); padding: 5px 0 5px 18px;
+  position: relative; border-bottom: 1px solid var(--divider);
+}
+.ux-ai-list li:last-child { border-bottom: none; }
+.ux-ai-list li::before { content: '→'; position: absolute; left: 0; color: var(--pu-md); font-size: 11px; top: 7px; }
+.ux-ai-callout {
+  margin-top: 14px; padding: 11px 14px;
+  background: rgba(45,79,214,0.07); border-radius: 8px;
+  font-size: 13px; color: var(--ac-blue); font-weight: 500; line-height: 1.5;
+}
+
+/* ═══════════════════════════════════════
+   MÉTRICAS — Warm paper
+═══════════════════════════════════════ */
+#metricas { background: #FFFBEA; border-top: 1px solid #F0E08A; border-bottom: 1px solid #F0E08A; }
+.mmet-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 40px; }
+.mmet-card {
+  background: #fff; border-radius: 14px; padding: 22px 24px;
+  border: 1px solid var(--pa-bg); box-shadow: var(--sh-card);
+  transition: box-shadow var(--t), transform var(--t);
+}
+.mmet-card:hover { box-shadow: var(--sh-hover); transform: translateY(-2px); }
+.mmet-icon {
+  width: 38px; height: 38px; border-radius: 9px;
+  background: rgba(255, 208, 68, 0.279); display: flex;
+  align-items: center; justify-content: center; font-size: 17px; margin-bottom: 14px;
+}
+.mmet-name {
+  font-family: var(--font-display); font-size: 15px; font-weight: 600;
+  color: var(--text); margin-bottom: 7px;
+}
+.mmet-desc { font-size: 13px; color: var(--text-sec); line-height: 1.6; }
+.mmet-note {
+  margin-top: 36px; padding: 18px 22px;
+  background: rgba(255, 235, 155, 0.247); border-radius: 12px;
+  border-left: 3px solid var(--ac-teal); font-size: 14px;
+  color: var(--text-sec); line-height: 1.7;
+}
+.mmet-note strong { color: var(--ac-forest); }
 
 /* ─── RESPONSIVE ─── */
 @media (max-width: 768px) {
@@ -493,6 +645,10 @@ footer { background: var(--dk-wm); border-top: 1px solid rgba(255,255,255,0.05);
   .journal-grid { grid-template-columns: 1fr; }
   #closing { padding: 64px 20px; }
   .cl-inner blockquote { font-size: 18px; }
+  .truths-grid { grid-template-columns: 1fr; }
+  .ux-ai-cols { grid-template-columns: 1fr; }
+  .ux-ai-col:first-child { border-right: none; border-bottom: 1px solid var(--divider); }
+  #antes { padding: 64px 24px; }
 }
 </style>
 </head>
@@ -506,6 +662,7 @@ footer { background: var(--dk-wm); border-top: 1px solid rgba(255,255,255,0.05);
       <li><a href="#partida">Inicio</a></li>
       <li><a href="#aidesign">AI Design</a></li>
       <li><a href="#pilares">Pilares</a></li>
+      <li><a href="#metricas">Métricas</a></li>
       <li><a href="#roadmap">Roadmap</a></li>
       <li><a href="#recursos">Recursos</a></li>
     </ul>
@@ -520,6 +677,7 @@ footer { background: var(--dk-wm); border-top: 1px solid rgba(255,255,255,0.05);
 <section id="hero" class="grain">
   <div class="h-blob h-blob-1"></div>
   <div class="h-blob h-blob-2"></div>
+  <div class="h-blob h-blob-3"></div>
 
   <!-- Purple mountain SVG background -->
   <svg class="h-mountains" viewBox="0 0 1440 220" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
@@ -530,30 +688,40 @@ footer { background: var(--dk-wm); border-top: 1px solid rgba(255,255,255,0.05);
   <div class="hero-content">
     <div class="h-eyebrow">Una guía para diseñadores UX</div>
     <h1 class="h-h1">Tu Viaje hacia el<br/><span class="accent">AI Design</span></h1>
-    <p class="h-sub">Para diseñadores UX que quieren abrazar la inteligencia artificial sin perder su esencia humana</p>
-    <div class="h-actions">
-      <button class="btn-white" onclick="goTo('partida')">
-        Comienza tu transformación
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </button>
-      <button class="btn-ghost" onclick="goTo('pilares')">Ver los 6 pilares</button>
-    </div>
+    <p class="h-sub">Para diseñadores UX/UI que quieren ampliar su practica hacia el AI Design con claridad, criterio y una base profundamente humana.</p>
   </div>
   <div class="h-scroll"><div class="h-scroll-line"></div>scroll</div>
 </section>
 
-<!-- ─── INTRO — Paper ─── -->
-<section id="intro">
-  <div class="intro-wrap">
-    <blockquote class="big-quote reveal">
-      <span class="bq-mark">"</span>
-      El cambio de UX Designer a AI Designer no es lineal—es una transformación de cómo <em>ves</em> el mundo digital.
-    </blockquote>
-    <div class="chips-row reveal d1">
-      <span class="chip chip-pu">✦ No se trata de nuevos términos</span>
-      <span class="chip chip-bl">⟳ Es desarrollar nueva intuición</span>
-      <span class="chip chip-ne">◇ Tu experiencia UX es tu base</span>
+<!-- ─── ANTES DE EMPEZAR — Soft lavender editorial ─── -->
+<section id="antes">
+  <div class="antes-inner">
+    <span class="antes-kicker reveal">Antes de empezar</span>
+    <h2 class="antes-headline reveal d1">No es una carrera.<br/>Es una transformación.</h2>
+    <p class="antes-sub reveal d2">Si estás aquí, probablemente sientes algo de esto:</p>
+    <div class="sentir-row reveal d2">
+      <span class="sentir-tag">Curiosidad</span>
+      <span class="sentir-tag">Presión</span>
+      <span class="sentir-tag">FOMO</span>
+      <span class="sentir-tag">Emoción</span>
+      <span class="sentir-tag">Miedo a quedarte atrás</span>
+      <span class="sentir-tag">O todo a la vez</span>
     </div>
+    <div class="truths-grid reveal d3">
+      <div class="truth-card">
+        <div class="truth-num">01</div>
+        <p><strong>No estás tarde.</strong> La disciplina de AI Design todavía se está formando. Entras en el momento justo.</p>
+      </div>
+      <div class="truth-card">
+        <div class="truth-num">02</div>
+        <p><strong>No necesitas ser ingenier@.</strong> Necesitas entender cómo se comportan los sistemas, su estructura y su lógica, no volverte full-stack.</p>
+      </div>
+      <div class="truth-card">
+        <div class="truth-num">03</div>
+        <p><strong>Tu experiencia UX no se invalida.</strong> Se amplifica. Tu criterio y empatía son la mayor ventaja que tienes.</p>
+      </div>
+    </div>
+    <p class="antes-callout reveal d3">La idea no es que salgas de aqui repitiendo conceptos, sino entendiendo mejor donde estas, que ya sabes hacer muy bien y que parte de tu forma de disenar merece evolucionar.</p>
   </div>
 </section>
 
@@ -563,7 +731,7 @@ footer { background: var(--dk-wm); border-top: 1px solid rgba(255,255,255,0.05);
     <div class="reveal">
       <div class="eyebrow eyebrow-pu">📍 Sección 1</div>
       <h2 class="section-h2">Donde Estoy Ahora</h2>
-      <p class="section-lead">Antes de viajar, necesitas saber dónde estás. No para juzgarte, sino para honrar lo que ya sabes y entender qué te atrae hacia lo nuevo.</p>
+      <p class="section-lead">Antes de viajar, necesitas saber dónde estás. No para juzgarte, sino para honrar lo que ya sabes y entender qué te atrae hacia lo nuevo.<br>Este ejercicio sirve para algo importante: separar el ruido del interes genuino.</p>
     </div>
     <div class="partida-grid">
       <div class="qcard reveal d1">
@@ -640,6 +808,97 @@ footer { background: var(--dk-wm); border-top: 1px solid rgba(255,255,255,0.05);
       <div class="cq-blob"></div>
       <blockquote>¿Cómo diseño para que la máquina sea más humana, no para que el humano sea más máquina?</blockquote>
       <cite>— La pregunta central del AI Designer</cite>
+    </div>
+
+    <!-- UX for AI vs AI for UX -->
+    <div class="ux-ai-wrap reveal">
+      <div class="ux-ai-head">
+        <p>Esto es importante · La distinción clave</p>
+      </div>
+      <div class="ux-ai-cols">
+        <div class="ux-ai-col">
+          <span class="ux-ai-badge badge-tool">AI for UX</span>
+          <h4>La IA como herramienta</h4>
+          <p>Usas IA para acelerar y mejorar tu trabajo de diseño:</p>
+          <ul class="ux-ai-list">
+            <li>Generar wireframes y maquetas</li>
+            <li>Escribir y refinar microcopy</li>
+            <li>Analizar entrevistas de usuario</li>
+            <li>Crear moodboards y referencias visuales</li>
+          </ul>
+        </div>
+        <div class="ux-ai-col">
+          <span class="ux-ai-badge badge-system">UX for AI</span>
+          <h4>La IA como parte del sistema</h4>
+          <p>Diseñas productos que integran inteligencia como capacidad central:</p>
+          <ul class="ux-ai-list">
+            <li>Diseñar flujos con agentes y memoria</li>
+            <li>Definir cuándo el sistema actúa solo</li>
+            <li>Diseñar la confianza progresiva</li>
+            <li>Gestionar variabilidad de outputs</li>
+          </ul>
+          <p class="ux-ai-callout">Tu foco ya no esta solo en la pantalla. Tambien esta en como se comporta el sistema, como habla, que decide, como explica lo que hace y como deja espacio para que la persona mantenga el control.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SHIFTS — El cambio de rol ─── -->
+<section id="shifts">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow eyebrow-vi">🔄 El Cambio de Rol</div>
+      <h2 class="section-h2">Los grandes cambios del diseñador</h2>
+      <p class="section-lead">Diseñar con IA no es solo añadir un chatbot. Es replantear cómo piensas sobre tu propio trabajo.</p>
+    </div>
+    <div class="shifts-grid">
+      <div class="shift-card reveal d1">
+        <div class="shift-num">01</div>
+        <div class="shift-arrow"><span class="sh-from">Pantallas</span>&nbsp;→&nbsp;<span class="sh-to">Sistemas y agentes</span></div>
+        <h3>De pantallas a sistemas y agentes</h3>
+        <p>Antes diseñabas pantallas y flujos muy definidos. Ahora diseñas cómo se comporta un agente:</p>
+        <ul>
+          <li>Qué puede hacer y qué no</li>
+          <li>Cuándo interviene</li>
+          <li>Cuándo conviene que espere</li>
+          <li>Cómo acompaña sin invadir</li>
+        </ul>
+      </div>
+      <div class="shift-card reveal d2">
+        <div class="shift-num">02</div>
+        <div class="shift-arrow"><span class="sh-from">Flujos deterministas</span>&nbsp;→&nbsp;<span class="sh-to">Resultados probabilísticos</span></div>
+        <h3>De certezas a posibilidades</h3>
+        <p>Antes: "si haces clic aquí, pasa esto". Ahora el sistema probablemente responderá así… pero puede variar. Diseñas para:</p>
+        <ul>
+          <li>Respuestas inesperadas</li>
+          <li>Errores y ambigüedad</li>
+          <li>Aclaraciones</li>
+          <li>Corrección por parte del usuario</li>
+        </ul>
+      </div>
+      <div class="shift-card reveal d3">
+        <div class="shift-num">03</div>
+        <div class="shift-arrow"><span class="sh-from">UI first</span>&nbsp;→&nbsp;<span class="sh-to">Capacidades + límites + UI</span></div>
+        <h3>De UI first a capas de producto</h3>
+        <p>En productos con IA, conviene pensar primero en tres capas:</p>
+        <div class="shift-layers">
+          <div class="shift-layer cap"><span class="shift-layer-n">Capacidades</span><p>Qué puede hacer esta IA de forma realmente útil.</p></div>
+          <div class="shift-layer lim"><span class="shift-layer-n">Límites</span><p>Qué no debe hacer por seguridad, ética, confianza o negocio.</p></div>
+          <div class="shift-layer ifc"><span class="shift-layer-n">Interfaz</span><p>Cómo haces visible y comprensible todo eso para la persona.</p></div>
+        </div>
+      </div>
+      <div class="shift-card reveal d4">
+        <div class="shift-num">04</div>
+        <div class="shift-arrow"><span class="sh-from">Usabilidad</span>&nbsp;→&nbsp;<span class="sh-to">Confianza, transparencia y control</span></div>
+        <h3>De usabilidad a confianza</h3>
+        <p>En UX para IA se suman preguntas nuevas que van más allá de "¿es fácil de usar?":</p>
+        <div class="shift-trust-list">
+          <div class="shift-trust-item">¿La persona confía en lo que hace la IA?</div>
+          <div class="shift-trust-item">¿La IA explica razonablemente por qué sugiere algo?</div>
+          <div class="shift-trust-item">¿La persona puede corregir, deshacer, revisar o poner límites?</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -905,6 +1164,52 @@ footer { background: var(--dk-wm); border-top: 1px solid rgba(255,255,255,0.05);
   </div>
 </section>
 
+<!-- ─── MÉTRICAS — Warm paper ─── -->
+<section id="metricas">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow eyebrow-pu">📊 Sección 4</div>
+      <h2 class="section-h2">Métricas en AI Design</h2>
+      <p class="section-lead">En AI Design no solo medimos usabilidad. Medimos la calidad de la relación entre el humano y el sistema inteligente.</p>
+    </div>
+    <div class="mmet-grid">
+      <div class="mmet-card reveal d1">
+        <div class="mmet-icon">🎯</div>
+        <div class="mmet-name">Confianza Calibrada</div>
+        <p class="mmet-desc">¿El usuario confía en el sistema en la medida correcta? Ni demasiado (sobreconfianza) ni demasiado poco (abandono).</p>
+      </div>
+      <div class="mmet-card reveal d2">
+        <div class="mmet-icon">✏️</div>
+        <div class="mmet-name">Tasa de Corrección Humana</div>
+        <p class="mmet-desc">¿Con qué frecuencia el usuario corrige o rechaza el output del sistema? Alta frecuencia indica falta de alineación.</p>
+      </div>
+      <div class="mmet-card reveal d3">
+        <div class="mmet-icon">💡</div>
+        <div class="mmet-name">Comprensión de la Explicación</div>
+        <p class="mmet-desc">¿Entiende el usuario por qué el sistema tomó esa decisión? La explicabilidad es parte del diseño, no un extra.</p>
+      </div>
+      <div class="mmet-card reveal d1">
+        <div class="mmet-icon">🔄</div>
+        <div class="mmet-name">Uso de Override Manual</div>
+        <p class="mmet-desc">¿El usuario puede y elige tomar el control? El override sano indica que el sistema mantiene la agencia humana.</p>
+      </div>
+      <div class="mmet-card reveal d2">
+        <div class="mmet-icon">⚖️</div>
+        <div class="mmet-name">Fricción vs. Control</div>
+        <p class="mmet-desc">¿Reduce la fricción sin quitar el control? Automatización que elimina control genera desconfianza a largo plazo.</p>
+      </div>
+      <div class="mmet-card reveal d3">
+        <div class="mmet-icon">🛡️</div>
+        <div class="mmet-name">Degradación Elegante</div>
+        <p class="mmet-desc">Cuando el sistema falla o tiene baja confianza, ¿la experiencia sigue siendo útil y honesta con el usuario?</p>
+      </div>
+    </div>
+    <div class="mmet-note reveal">
+      <strong>Nota importante:</strong> Estas métricas no reemplazan las métricas UX clásicas (satisfacción, task completion, NPS). Las complementan. Un AI Designer sabe cuándo aplicar cada marco de medición.
+    </div>
+  </div>
+</section>
+
 <!-- ─── ROADMAP — Blue dark ─── -->
 <section id="roadmap" class="grain">
   <div class="rm-blob rm-blob-1"></div>
@@ -912,12 +1217,12 @@ footer { background: var(--dk-wm); border-top: 1px solid rgba(255,255,255,0.05);
 
   <!-- Blue mountain shapes -->
   <svg style="position:absolute;bottom:0;left:0;right:0;pointer-events:none;z-index:1;" viewBox="0 0 1440 180" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-    <path d="M0 180 L0 120 Q240 40 480 100 Q720 160 960 70 Q1200 0 1440 60 L1440 180 Z" fill="rgba(45,32,110,0.5)"/>
+    <path d="M0 180 L0 120 Q240 40 480 100 Q720 160 960 70 Q1200 0 1440 60 L1440 180 Z" fill="rgba(10,40,25,0.55)"/>
   </svg>
 
   <div class="container" style="position:relative;z-index:2;">
     <div class="reveal">
-      <div class="eyebrow">🗺️ Sección 4</div>
+      <div class="eyebrow">🗺️ Sección 5</div>
       <h2 class="section-h2">Mi Camino de Aprendizaje</h2>
       <p class="section-lead">No es un roadmap fijo. Es un menú de opciones. Tomas lo que tiene sentido para ti, a tu ritmo, en tu momento.</p>
     </div>
@@ -977,7 +1282,7 @@ footer { background: var(--dk-wm); border-top: 1px solid rgba(255,255,255,0.05);
 <section id="reflexion">
   <div class="container">
     <div class="reveal">
-      <div class="eyebrow" style="color:var(--pu-md)">💭 Sección 5</div>
+      <div class="eyebrow" style="color:var(--pu-md)">💭 Sección 6</div>
       <h2 class="section-h2">Reflexión Continua</h2>
       <p class="section-lead">Reflexión no es evaluación. Es simplemente parar, observar, aprender. Semanal o mensual — tú decides la frecuencia.</p>
     </div>
@@ -1010,32 +1315,7 @@ footer { background: var(--dk-wm); border-top: 1px solid rgba(255,255,255,0.05);
         </ul>
       </div>
     </div>
-    <div class="journal-wrap reveal">
-      <div class="journal-head">
-        <div class="jdot"></div>
-        <h3>Mi Espacio de Reflexión</h3>
-      </div>
-      <div class="journal-body">
-        <div class="journal-grid">
-          <div>
-            <div class="jlabel">Esta Semana Aprendí</div>
-            <textarea class="jta" placeholder="3–5 puntos clave…"></textarea>
-          </div>
-          <div>
-            <div class="jlabel">Mi Pregunta Pendiente</div>
-            <textarea class="jta" placeholder="Algo que aún no entiendo…"></textarea>
-          </div>
-          <div>
-            <div class="jlabel">Próximo Paso Pequeño</div>
-            <textarea class="jta" placeholder="Una acción concreta…"></textarea>
-          </div>
-          <div>
-            <div class="jlabel">Observación Personal</div>
-            <textarea class="jta" placeholder="¿Cómo me sentí esta semana?"></textarea>
-          </div>
-        </div>
-      </div>
-    </div>
+    
   </div>
 </section>
 
@@ -1043,7 +1323,7 @@ footer { background: var(--dk-wm); border-top: 1px solid rgba(255,255,255,0.05);
 <section id="recursos">
   <div class="container">
     <div class="reveal">
-      <div class="eyebrow">📚 Sección 6</div>
+      <div class="eyebrow">📚 Sección 7</div>
       <h2 class="section-h2">Recursos, No Tareas</h2>
       <p class="section-lead">No son obligaciones. Son invitaciones. Toma lo que te llama ahora, deja lo que no. El orden no importa.</p>
     </div>
@@ -1062,41 +1342,41 @@ footer { background: var(--dk-wm); border-top: 1px solid rgba(255,255,255,0.05);
         <ul class="recs-items">
           <li>Microsoft HAX Toolkit<span class="rmeta">Free · Online</span></li>
           <li>People + AI Guidebook — Google<span class="rmeta">PDF Gratis</span></li>
-          <li>5 Frameworks for UX Designers<span class="rmeta">Medium Article</span></li>
         </ul>
       </div>
       <div class="recs-card reveal d3">
-        <div class="recs-cat">Diseño Conversacional</div>
-        <h3>Conversation Design</h3>
+        <div class="recs-cat">Ética y Regulación</div>
+        <h3>Diseño Responsable</h3>
         <ul class="recs-items">
-          <li>The Conversation Design Handbook<span class="rmeta">Online Resource</span></li>
-          <li>Analiza 5 chatbots: diálogos y fallbacks<span class="rmeta">Práctica directa</span></li>
+          <li>AI Act — Comisión Europea<span class="rmeta">Marco regulatorio · 2024</span></li>
+          <li>Fairness in ML — Google<span class="rmeta">Short Course · Gratis</span></li>
         </ul>
       </div>
       <div class="recs-card reveal d1">
-        <div class="recs-cat">Prompt Engineering</div>
-        <h3>Mejora Tus Prompts</h3>
+        <div class="recs-cat">Conversación y UX</div>
+        <h3>Research + Documentación</h3>
         <ul class="recs-items">
-          <li>Prompt Engineering for Designers<span class="rmeta">Guides online</span></li>
+          <li>NN/g AI UX Research<span class="rmeta">Nielsen Norman Group</span></li>
+          <li>Figma AI Documentation<span class="rmeta">Guía oficial</span></li>
+          <li>Analiza 5 chatbots: diálogos y fallbacks<span class="rmeta">Práctica directa</span></li>
+        </ul>
+      </div>
+      <div class="recs-card reveal d2">
+        <div class="recs-cat">Prompt Engineering</div>
+        <h3>El Prompt como Interfaz</h3>
+        <ul class="recs-items">
           <li>Experimenta en ChatGPT / Claude<span class="rmeta">Práctica directa</span></li>
           <li>Crea tu "prompt cookbook"<span class="rmeta">Tu colección personal</span></li>
         </ul>
       </div>
-      <div class="recs-card reveal d2">
-        <div class="recs-cat">Ética en AI</div>
-        <h3>Diseño Responsable</h3>
-        <ul class="recs-items">
-          <li>Fairness in Machine Learning — Google<span class="rmeta">Short Course · Gratis</span></li>
-          <li>The Ethical AI Handbook<span class="rmeta">Libro</span></li>
-        </ul>
-      </div>
       <div class="recs-card reveal d3">
-        <div class="recs-cat">Expertos a Seguir</div>
+        <div class="recs-cat">Creadores a Seguir</div>
         <h3>Referentes del Campo</h3>
         <ul class="recs-items">
-          <li>John Zimmerman — CMU<span class="rmeta">Human-Centered AI</span></li>
-          <li>Rikke Dam<span class="rmeta">Design Ethics</span></li>
-          <li>Yonatan Zunger<span class="rmeta">AI Ethics</span></li>
+          <li>Micaela (UX Design for AI)<span class="rmeta">Contenido en español</span></li>
+          <li>Patricia Reiners<span class="rmeta">AI + UX</span></li>
+          <li>Johan Villalba<span class="rmeta">Diseño e IA</span></li>
+          <li>The Future of AI<span class="rmeta">Podcast</span></li>
         </ul>
       </div>
     </div>
@@ -1118,12 +1398,12 @@ footer { background: var(--dk-wm); border-top: 1px solid rgba(255,255,255,0.05);
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
     </button>
     <div class="cl-divider"></div>
-    <p class="cl-byline">UX for AI Guide · Hecho con cuidado para diseñadores en transición · 2025</p>
+    <p class="cl-byline">UX for AI Guide · Hecho con cuidado para diseñadores en transición · 2026</p>
   </div>
 </section>
 
 <footer>
-  <p>Un compañero de viaje, no un checklist de cumplimiento. El destino no es la perfección. Es el crecimiento.</p>
+  <p>Creado por <a href="https://instagram.com/carobarbosa_ux" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.18s ease;" onmouseover="this.style.color='rgba(201,184,255,0.8)'" onmouseout="this.style.color='rgba(255,255,255,0.45)'">@carobarbosa_ux</a> &nbsp;·&nbsp; 2026</p>
 </footer>
 
 <script>
