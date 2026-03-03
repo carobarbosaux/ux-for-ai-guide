@@ -626,12 +626,12 @@ footer { background: var(--dk-wm); border-top: 1px solid rgba(255,255,255,0.05);
 .mmet-note strong { color: var(--ac-forest); }
 
 /* ── Qué te llevas ── */
-#llevate { background: var(--bg); border-top: 1px solid var(--divider); border-bottom: 1px solid var(--divider); }
+#llevate { background: #f0fbea; border-top: 1px solid var(--divider); border-bottom: 1px solid var(--divider); }
 .llevate-inner { max-width: 720px; margin: 0 auto; }
 .llevate-list { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
 .llevate-item {
   display: flex; align-items: flex-start; gap: 14px; padding: 14px 18px;
-  background: var(--page-bg); border-radius: 10px; font-size: 14px; line-height: 1.6;
+  background: #fbfff6; border-radius: 10px; font-size: 14px; line-height: 1.6;
   color: var(--text-sec); border: 1px solid rgba(0,0,0,0.04);
 }
 .llevate-check { font-size: 13px; font-weight: 700; color: var(--gr-md); flex-shrink: 0; margin-top: 2px; }
@@ -1266,12 +1266,10 @@ footer { background: var(--dk-wm); border-top: 1px solid rgba(255,255,255,0.05);
       <h2 class="section-h2">Métricas en AI Design</h2>
       <p class="section-lead">En AI Design no solo medimos usabilidad. Medimos la calidad de la relación entre el humano y el sistema inteligente.</p>
     </div>
+     <div class="mmet-note reveal">
+      <strong>Nota importante:</strong> Estas métricas no reemplazan las métricas UX clásicas (satisfacción, task completion, NPS). Las complementan. Un AI Designer sabe cuándo aplicar cada marco de medición.
+    </div>
     <div class="mmet-grid">
-      <div class="mmet-card reveal d1">
-        <div class="mmet-icon">🎯</div>
-        <div class="mmet-name">Confianza Calibrada</div>
-        <p class="mmet-desc">¿El usuario confía en el sistema en la medida correcta? Ni demasiado (sobreconfianza) ni demasiado poco (abandono).</p>
-      </div>
       <div class="mmet-card reveal d2">
         <div class="mmet-icon">✏️</div>
         <div class="mmet-name">Tasa de Corrección Humana</div>
@@ -1297,12 +1295,6 @@ footer { background: var(--dk-wm); border-top: 1px solid rgba(255,255,255,0.05);
         <div class="mmet-name">Degradación Elegante</div>
         <p class="mmet-desc">Cuando el sistema falla o tiene baja confianza, ¿la experiencia sigue siendo útil y honesta con el usuario?</p>
       </div>
-    </div>
-    <div class="mmet-note reveal">
-      <strong>Nota importante:</strong> Estas métricas no reemplazan las métricas UX clásicas (satisfacción, task completion, NPS). Las complementan. Un AI Designer sabe cuándo aplicar cada marco de medición.
-    </div>
-    <div class="mmet-sublabel reveal">Lo que también conviene medir en productos con AI</div>
-    <div class="mmet-grid">
       <div class="mmet-card reveal d1">
         <div class="mmet-icon">📈</div>
         <div class="mmet-name">Adopción real de la capacidad AI</div>
