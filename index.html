@@ -446,7 +446,7 @@ section { padding: 96px 0; }
 .pcard::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; border-radius: var(--r-card) var(--r-card) 0 0; }
 .p1::before { background: var(--pu-lt); }
 .p2::before { background: var(--gr-lt); }
-.p3::before { background: var(--gr-lt); }
+.p3::before { background: var(--bl-lt); }
 .p4::before { background: var(--ye-wm); }
 .pcard .pnum { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.38); margin-bottom: 6px; }
 .pcard h3 { font-size: 20px; font-weight: 600; color: #fff; margin-bottom: 4px; }
@@ -625,6 +625,54 @@ footer { background: var(--dk-wm); border-top: 1px solid rgba(255,255,255,0.05);
 }
 .mmet-note strong { color: var(--ac-forest); }
 
+/* ── Qué te llevas ── */
+#llevate { background: var(--bg); border-top: 1px solid var(--divider); border-bottom: 1px solid var(--divider); }
+.llevate-inner { max-width: 720px; margin: 0 auto; }
+.llevate-list { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
+.llevate-item {
+  display: flex; align-items: flex-start; gap: 14px; padding: 14px 18px;
+  background: var(--page-bg); border-radius: 10px; font-size: 14px; line-height: 1.6;
+  color: var(--text-sec); border: 1px solid rgba(0,0,0,0.04);
+}
+.llevate-check { font-size: 13px; font-weight: 700; color: var(--gr-md); flex-shrink: 0; margin-top: 2px; }
+
+/* ── Errores comunes ── */
+#errores { background: #f7f3ff; border-top: 1px solid rgba(122,103,248,0.12); border-bottom: 1px solid rgba(122,103,248,0.12); }
+.errores-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 40px; }
+.error-card {
+  background: var(--bg); border: 1px solid var(--divider); border-radius: var(--r-card);
+  padding: 22px 24px; box-shadow: var(--sh-card); border-left: 3px solid rgba(122,103,248,0.35);
+}
+.error-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--pu-md); margin-bottom: 8px; }
+.error-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: var(--text); }
+.error-card p { font-size: 13px; line-height: 1.65; color: var(--text-sec); }
+.error-card p + p { margin-top: 6px; }
+.errores-callout { margin-top: 32px; padding: 16px 20px; background: rgba(122,103,248,0.06); border-radius: 12px; border-left: 3px solid var(--pu-md); font-size: 14px; color: var(--text-sec); line-height: 1.7; }
+.shift-callout { margin-top: 14px; padding: 12px 14px; background: rgba(58,85,237,0.07); border-radius: 8px; font-size: 13px; color: #3a55ed; line-height: 1.55; }
+
+/* ── Llévalo a un producto real ── */
+.llevalo-block { margin-top: 20px; padding: 14px 18px; background: rgba(122,103,248,0.05); border-radius: 10px; border-left: 3px solid var(--pu-lt); }
+.llevalo-title { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--pu-md); margin-bottom: 10px; }
+.llevalo-qs { display: flex; flex-direction: column; gap: 5px; }
+.llevalo-qs li { font-size: 13px; line-height: 1.6; color: var(--text-sec); padding-left: 16px; position: relative; }
+.llevalo-qs li::before { content: '?'; position: absolute; left: 0; font-weight: 700; color: var(--pu-lt); font-size: 12px; }
+
+/* ── Métricas sub-bloque ── */
+.mmet-sublabel { font-size: 12px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--text-sm); margin-top: 40px; margin-bottom: 16px; }
+
+/* ── Más profundo ── */
+#profundo { background: var(--bg); border-top: 1px solid var(--divider); border-bottom: 1px solid var(--divider); }
+.profundo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 40px; }
+.profundo-card {
+  background: var(--page-bg); border: 1px solid var(--divider); border-radius: var(--r-card);
+  padding: 22px 24px; transition: box-shadow var(--t), transform var(--t);
+}
+.profundo-card:hover { box-shadow: var(--sh-hover); transform: translateY(-2px); }
+.profundo-num { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-sm); margin-bottom: 6px; }
+.profundo-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: var(--text); }
+.profundo-card p { font-size: 13px; line-height: 1.65; color: var(--text-sec); }
+.profundo-callout { margin-top: 32px; padding: 16px 20px; font-size: 14px; line-height: 1.7; color: var(--text-sec); background: rgba(122,103,248,0.05); border-radius: 12px; border-left: 3px solid var(--pu-lt); }
+
 /* ─── RESPONSIVE ─── */
 @media (max-width: 768px) {
   .nav-links { display: none; }
@@ -721,6 +769,25 @@ footer { background: var(--dk-wm); border-top: 1px solid rgba(255,255,255,0.05);
       </div>
     </div>
     <p class="antes-callout reveal d3">La idea no es que salgas de aqui repitiendo conceptos, sino entendiendo mejor donde estas, que ya sabes hacer muy bien y que parte de tu forma de disenar merece evolucionar.</p>
+  </div>
+</section>
+
+<!-- ─── QUÉ TE LLEVAS ─── -->
+<section id="llevate">
+  <div class="container">
+    <div class="llevate-inner">
+      <div class="reveal">
+        <div class="eyebrow eyebrow-pu">✦ Para que tengas claro a dónde vamos</div>
+        <h2 class="section-h2">Qué te llevas al terminar esta guía</h2>
+        <p class="section-lead">Esta guía no busca que salgas sabiendo de todo. Busca que termines con más claridad, mejor criterio y una forma más sólida de mirar productos con AI.</p>
+      </div>
+      <ul class="llevate-list">
+        <li class="llevate-item reveal d1"><span class="llevate-check">✓</span>Entender la diferencia entre usar AI como herramienta y diseñar productos donde la AI es parte central del sistema.</li>
+        <li class="llevate-item reveal d2"><span class="llevate-check">✓</span>Analizar una experiencia AI desde sus capacidades, límites y comportamiento — no solo desde la interfaz.</li>
+        <li class="llevate-item reveal d3"><span class="llevate-check">✓</span>Detectar riesgos comunes como sobreautomatización, falta de transparencia o pérdida de control del usuario.</li>
+        <li class="llevate-item reveal d2"><span class="llevate-check">✓</span>Pensar en confianza, explicabilidad y corrección humana como parte integral del diseño.</li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -875,6 +942,10 @@ footer { background: var(--dk-wm); border-top: 1px solid rgba(255,255,255,0.05);
           <li>Aclaraciones</li>
           <li>Corrección por parte del usuario</li>
         </ul>
+        <div class="shift-callout">
+          <strong>Diseñar con AI no es controlar un único resultado.</strong> Es diseñar el espacio de posibilidades donde ese resultado puede variar sin perder claridad, seguridad ni confianza.<br/><br/>
+          Antes muchas decisiones de UX partían de flujos cerrados. En sistemas con AI, la salida puede variar según contexto, memoria, datos o interpretación. El trabajo del diseño ya no es fijar una única respuesta, es definir principios, límites y formas de corrección.
+        </div>
       </div>
       <div class="shift-card reveal d3">
         <div class="shift-num">03</div>
@@ -993,6 +1064,14 @@ footer { background: var(--dk-wm); border-top: 1px solid rgba(255,255,255,0.05);
               </div>
             </div>
           </div>
+          <div class="llevalo-block">
+            <div class="llevalo-title">→ Llévalo a un producto real</div>
+            <ul class="llevalo-qs">
+              <li>¿Dónde explica decisiones tu producto actual?</li>
+              <li>¿Dónde puede la persona corregir o deshacer?</li>
+              <li>¿En qué momento la AI actúa con demasiada autonomía?</li>
+            </ul>
+          </div>
         </div>
 
         <!-- P3 -->
@@ -1035,6 +1114,14 @@ footer { background: var(--dk-wm); border-top: 1px solid rgba(255,255,255,0.05);
                 <p><strong>Mala:</strong> "No entiendo."<br/><strong>Buena:</strong> "¿Quisiste decir X o Y? O cuéntame más." Esto es lo que hace conversaciones útiles y construye confianza sostenida.</p>
               </div>
             </div>
+          </div>
+          <div class="llevalo-block">
+            <div class="llevalo-title">→ Llévalo a un producto real</div>
+            <ul class="llevalo-qs">
+              <li>¿Qué recuerda el sistema hoy?</li>
+              <li>¿Qué debería recordar y qué no?</li>
+              <li>¿Cómo pide aclaración cuando no entiende bien?</li>
+            </ul>
           </div>
         </div>
 
@@ -1156,6 +1243,14 @@ footer { background: var(--dk-wm); border-top: 1px solid rgba(255,255,255,0.05);
               </div>
             </div>
           </div>
+          <div class="llevalo-block">
+            <div class="llevalo-title">→ Llévalo a un producto real</div>
+            <ul class="llevalo-qs">
+              <li>¿Qué grupo podría verse afectado por una mala decisión del sistema?</li>
+              <li>¿Hay una forma clara de escalar a revisión humana?</li>
+              <li>¿El usuario entiende qué decide la AI y qué decide el sistema por reglas?</li>
+            </ul>
+          </div>
         </div>
 
       </div>
@@ -1205,6 +1300,29 @@ footer { background: var(--dk-wm); border-top: 1px solid rgba(255,255,255,0.05);
     </div>
     <div class="mmet-note reveal">
       <strong>Nota importante:</strong> Estas métricas no reemplazan las métricas UX clásicas (satisfacción, task completion, NPS). Las complementan. Un AI Designer sabe cuándo aplicar cada marco de medición.
+    </div>
+    <div class="mmet-sublabel reveal">Lo que también conviene medir en productos con AI</div>
+    <div class="mmet-grid">
+      <div class="mmet-card reveal d1">
+        <div class="mmet-icon">📈</div>
+        <div class="mmet-name">Adopción real de la capacidad AI</div>
+        <p class="mmet-desc">¿El usuario realmente usa esta capacidad o solo está visible pero ignorada? Una feature usada por el 3% no es un éxito, aunque esté bien diseñada.</p>
+      </div>
+      <div class="mmet-card reveal d2">
+        <div class="mmet-icon">⚡</div>
+        <div class="mmet-name">Sobreconfianza</div>
+        <p class="mmet-desc">¿El usuario acepta outputs sin revisarlos, incluso cuando debería cuestionarlos? Si la respuesta es sí, eso no siempre es éxito: también puede ser riesgo.</p>
+      </div>
+      <div class="mmet-card reveal d3">
+        <div class="mmet-icon">🔗</div>
+        <div class="mmet-name">Dependencia excesiva</div>
+        <p class="mmet-desc">¿La AI está ayudando a pensar mejor o está haciendo que la persona deje de evaluar por sí misma? Un buen sistema amplifica el criterio, no lo reemplaza.</p>
+      </div>
+      <div class="mmet-card reveal d1">
+        <div class="mmet-icon">🎯</div>
+        <div class="mmet-name">Calibración de confianza</div>
+        <p class="mmet-desc">¿El usuario confía demasiado, demasiado poco, o en la medida correcta según la calidad real del sistema? Una métrica "positiva" puede ocultar un problema si no se interpreta con criterio.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1315,6 +1433,107 @@ footer { background: var(--dk-wm); border-top: 1px solid rgba(255,255,255,0.05);
       </div>
     </div>
     
+  </div>
+</section>
+
+<!-- ─── ERRORES COMUNES ─── -->
+<section id="errores">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow" style="color:var(--pu-md)">⚠ Antes de continuar</div>
+      <h2 class="section-h2">Errores comunes al diseñar con AI</h2>
+      <p class="section-lead">Diseñar con AI no es solo sumar una capacidad nueva. También implica evitar decisiones que parecen modernas, pero empeoran la experiencia, la confianza o el control.</p>
+    </div>
+    <div class="errores-grid">
+      <div class="error-card reveal d1">
+        <div class="error-tag">Error 01</div>
+        <h3>Agregar un chatbot sin un problema real</h3>
+        <p>No toda experiencia necesita conversación.</p>
+        <p>Si la AI no resuelve mejor una necesidad concreta, solo agrega ruido.</p>
+      </div>
+      <div class="error-card reveal d2">
+        <div class="error-tag">Error 02</div>
+        <h3>Automatizar demasiado pronto</h3>
+        <p>Que el sistema pueda hacerlo no significa que deba hacerlo solo.</p>
+        <p>La automatización sin contexto ni permiso suele sentirse invasiva.</p>
+      </div>
+      <div class="error-card reveal d3">
+        <div class="error-tag">Error 03</div>
+        <h3>No mostrar incertidumbre</h3>
+        <p>Cuando la AI falla con demasiada seguridad, la confianza se rompe.</p>
+        <p>La incertidumbre bien comunicada también es UX.</p>
+      </div>
+      <div class="error-card reveal d1">
+        <div class="error-tag">Error 04</div>
+        <h3>Personalizar sin consentimiento</h3>
+        <p>Si el usuario no entiende por qué el sistema sugiere algo, la personalización se siente inquietante.</p>
+      </div>
+      <div class="error-card reveal d2">
+        <div class="error-tag">Error 05</div>
+        <h3>Ocultar o debilitar el control humano</h3>
+        <p>Si no hay forma de corregir, revisar, deshacer o limitar a la AI, no hay verdadera agencia.</p>
+      </div>
+      <div class="error-card reveal d3">
+        <div class="error-tag">Error 06</div>
+        <h3>Usar AI cuando una regla simple bastaba</h3>
+        <p>No todo necesita un modelo generativo.</p>
+        <p>A veces una lógica clara, predecible y más simple es mejor producto.</p>
+      </div>
+    </div>
+    <div class="errores-callout reveal">
+      El buen AI Design no se nota por cuánta AI tiene. Se nota por cuándo ayuda de verdad, cuándo explica bien y cuándo deja espacio para que la persona siga teniendo criterio.
+    </div>
+  </div>
+</section>
+
+<!-- ─── MÁS PROFUNDO ─── -->
+<section id="profundo">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow eyebrow-pu">★ Para ir más lejos</div>
+      <h2 class="section-h2">Más profundo: conceptos clave para seguir creciendo</h2>
+      <p class="section-lead">Cuando ya entiendes la base, empiezan a aparecer conceptos que ayudan a diseñar mejor sistemas más complejos. No necesitas dominarlos técnicamente desde el primer día, pero sí te conviene reconocerlos y entender por qué importan.</p>
+    </div>
+    <div class="profundo-grid">
+      <div class="profundo-card reveal d1">
+        <div class="profundo-num">Concepto 01</div>
+        <h3>Context Engineering</h3>
+        <p>No se trata solo de escribir un buen prompt. Se trata de diseñar qué contexto recibe el sistema para poder responder mejor: instrucciones, memoria, datos disponibles, herramientas conectadas y límites. Entender esto te ayuda a saber por qué una AI responde bien en un momento y mal en otro.</p>
+      </div>
+      <div class="profundo-card reveal d2">
+        <div class="profundo-num">Concepto 02</div>
+        <h3>Orquestador de prompts</h3>
+        <p>En muchos productos AI no existe un solo prompt. Existen varias instrucciones funcionando juntas según la tarea, el momento o el tipo de usuario. El orquestador decide qué contexto, qué reglas y qué prompt convienen en cada paso. Esto cambia cómo pensamos la experiencia: no diseñas solo una interfaz, también diseñas la lógica que organiza la conversación.</p>
+      </div>
+      <div class="profundo-card reveal d3">
+        <div class="profundo-num">Concepto 03</div>
+        <h3>Memoria del sistema</h3>
+        <p>La memoria define qué recuerda la AI, durante cuánto tiempo y con qué nivel de prioridad. No toda memoria mejora la experiencia — a veces recordar demasiado también genera fricción o incomodidad. Diseñar memoria es decidir qué ayuda, qué sobra y qué debe poder borrarse.</p>
+      </div>
+      <div class="profundo-card reveal d1">
+        <div class="profundo-num">Concepto 04</div>
+        <h3>Herramientas y tool use</h3>
+        <p>Muchas AI ya no solo responden texto: también consultan herramientas, llaman APIs, buscan documentos o ejecutan acciones. Esto implica diseñar no solo una respuesta, sino el momento exacto en que el sistema consulta, verifica o actúa.</p>
+      </div>
+      <div class="profundo-card reveal d2">
+        <div class="profundo-num">Concepto 05</div>
+        <h3>RAG — recuperación de información</h3>
+        <p>Un modelo no siempre debe "inventar" desde lo que aprendió antes. A veces necesita consultar información externa y actual. RAG es una forma de darle acceso a contenido relevante antes de responder. Para UX, esto importa porque afecta confianza, precisión, trazabilidad y explicación.</p>
+      </div>
+      <div class="profundo-card reveal d3">
+        <div class="profundo-num">Concepto 06</div>
+        <h3>Reglas vs. modelo</h3>
+        <p>No todo debe resolverse con AI generativa. Algunas partes funcionan mejor con reglas fijas; otras con modelos más flexibles. Entender esta diferencia ayuda a diseñar experiencias más claras, más predecibles y más seguras.</p>
+      </div>
+      <div class="profundo-card reveal d1">
+        <div class="profundo-num">Concepto 07</div>
+        <h3>Alineación</h3>
+        <p>Alineación significa que el sistema se comporte de forma útil y coherente con la intención del producto, las necesidades del usuario y ciertos límites. Cuando no hay buena alineación, la AI puede responder "bien" en apariencia, pero no ayudar de verdad.</p>
+      </div>
+    </div>
+    <div class="profundo-callout reveal">
+      No necesitas dominar estos conceptos de inmediato. Pero empezar a reconocerlos cambia tu forma de leer productos AI y te prepara para colaborar mejor con equipos técnicos, producto y datos.
+    </div>
   </div>
 </section>
 
