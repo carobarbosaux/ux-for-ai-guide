@@ -14,22 +14,22 @@
   --font-display: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   /* Neutral */
   --bg:        #FFFFFF;
-  --page-bg:   #FAFAFA;
-  --border:    #E6E6E6;
-  --divider:   #EFEFEF;
-  --text:      #1F2933;
+  --page-bg:   #f6f6f6;
+  --border:    #f1f1f1;
+  --divider:   #fafafa;
+  --text:      #1f2933;
   --text-sec:  #6B7280;
   --text-sm:   #9CA3AF;
   /* Purple — creative / hero */
   --pu-lt:  #9d87e3;
   --pu-md:  #7A67F8;
-  --pu-dk:  #633d8f;
+  --pu-dk:  #2d4fd6;
   /* Blue — structure / roadmap */
   --bl-lt:  #7FAEFF;
   --bl-md:  #4A86F7;
   --bl-dk:  #df5900;
   /* Green — collections / recursos */
-  --gr-lt:  #A7D6C5;
+  --gr-lt:  #85dd9e;
   --gr-md:  #4C9C7D;
   --gr-dk:  #1E4F3A;
   /* Yellow — illustration accents only */
@@ -235,7 +235,7 @@ section { padding: 96px 0; }
   opacity: 0; transform: translateY(12px); animation: fadeUp 0.6s 0.6s forwards;
 }
 .h-scroll {
-  position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+  position: absolute; bottom: 28px; left: 0; right: 0; margin: 0 auto; width: fit-content;
   display: flex; flex-direction: column; align-items: center; gap: 6px;
   color: rgba(255,255,255,0.28); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; z-index: 2;
   opacity: 0; animation: fadeUp 0.6s 1.1s forwards;
@@ -280,7 +280,7 @@ section { padding: 96px 0; }
 .qcard-items li::before { content: '—'; color: var(--text-sm); flex-shrink: 0; }
 .superpower-strip {
   grid-column: 1 / -1;
-  background: #1A2A5E; border-radius: var(--r-card);
+  background: #1a3228; border-radius: var(--r-card);
   padding: 28px 32px; display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
   position: relative; overflow: hidden;
 }
@@ -289,7 +289,7 @@ section { padding: 96px 0; }
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 200px;
 }
-.superpower-strip h3 { font-size: 20px; font-weight: 600; color: #9DBEFF; margin-bottom: 6px; font-family: var(--font-display); }
+.superpower-strip h3 { font-size: 20px; font-weight: 600; color: #9dffa5; margin-bottom: 6px; font-family: var(--font-display); }
 .superpower-strip p { font-size: 14px; line-height: 22px; color: rgba(255,255,255,0.62); max-width: 500px; }
 
 /* ═══════════════════════════════════════
@@ -316,7 +316,7 @@ section { padding: 96px 0; }
 .mcard-insight strong { color: #1A5A8A; }
 /* Central quote — vivid indigo */
 .central-q {
-  background: #1a3228;); border-radius: var(--r-card); padding: 40px; text-align: center;
+  background: #1A2A5E;); border-radius: var(--r-card); padding: 40px; text-align: center;
   position: relative; overflow: hidden;
 }
 .central-q::after {
@@ -326,7 +326,7 @@ section { padding: 96px 0; }
 }
 .cq-blob { display: none; }
 .central-q blockquote { font-size: 20px; font-weight: 500; font-family: var(--font-display); line-height: 1.55; color: #fff; margin-bottom: 12px; position: relative; z-index: 1; }
-.central-q cite { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(190, 255, 200, 0.75); font-style: normal; position: relative; z-index: 1; }
+.central-q cite { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(190, 242, 255, 0.75); font-style: normal; position: relative; z-index: 1; }
 
 /* ═══════════════════════════════════════
    SHIFTS — El cambio de rol
@@ -566,35 +566,35 @@ footer { background: var(--dk-wm); border-top: 1px solid rgba(255,255,255,0.05);
 }
 
 /* ── UX for AI vs AI for UX comparison ── */
-.ux-ai-wrap { margin-top: 56px; border-radius: 16px; overflow: hidden; border: 1px solid var(--divider); }
-.ux-ai-head { padding: 18px 28px; background: var(--page-bg); border-bottom: 1px solid var(--divider); }
-.ux-ai-head p { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-sm); }
+.ux-ai-wrap { margin-top: 56px; border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.11); background: #1a3228; box-shadow: 0 8px 40px rgba(0,0,0,0.22); }
+.ux-ai-head { padding: 18px 28px; background: rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.11); }
+.ux-ai-head p { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gr-lt); }
 .ux-ai-cols { display: grid; grid-template-columns: 1fr 1fr; }
 .ux-ai-col { padding: 28px 30px; }
-.ux-ai-col:first-child { border-right: 1px solid var(--divider); }
+.ux-ai-col:first-child { border-right: 1px solid rgba(255,255,255,0.11); }
 .ux-ai-badge {
   display: inline-block; padding: 4px 12px; border-radius: 999px; font-size: 11px; font-weight: 600;
   letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 14px;
 }
-.badge-tool { background: rgba(107,114,128,0.1); color: var(--text-sec); }
-.badge-system { background: rgba(122,103,248,0.12); color: var(--pu-dk); }
+.badge-tool { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.55); border: 1px solid rgba(255,255,255,0.11); }
+.badge-system { background: rgba(167,214,197,0.18); color: var(--gr-lt); border: 1px solid rgba(167,214,197,0.25); }
 .ux-ai-col h4 {
   font-family: var(--font-display); font-size: 19px; font-weight: 600;
-  color: var(--text); margin-bottom: 10px; letter-spacing: -0.01em;
+  color: #fff; margin-bottom: 10px; letter-spacing: -0.01em;
 }
-.ux-ai-col:last-child h4 { color: var(--pu-dk); }
-.ux-ai-col > p { font-size: 13px; color: var(--text-sec); line-height: 1.65; margin-bottom: 16px; }
+.ux-ai-col:last-child h4 { color: var(--gr-lt); }
+.ux-ai-col > p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.65; margin-bottom: 16px; }
 .ux-ai-list { list-style: none; padding: 0; }
 .ux-ai-list li {
-  font-size: 13px; color: var(--text-sec); padding: 5px 0 5px 18px;
-  position: relative; border-bottom: 1px solid var(--divider);
+  font-size: 13px; color: rgba(255,255,255,0.58); padding: 5px 0 5px 18px;
+  position: relative; border-bottom: 1px solid rgba(255,255,255,0.10);
 }
 .ux-ai-list li:last-child { border-bottom: none; }
-.ux-ai-list li::before { content: '→'; position: absolute; left: 0; color: var(--pu-md); font-size: 11px; top: 7px; }
+.ux-ai-list li::before { content: '→'; position: absolute; left: 0; color: var(--gr-lt); font-size: 11px; top: 7px; }
 .ux-ai-callout {
   margin-top: 14px; padding: 11px 14px;
-  background: rgba(45,79,214,0.07); border-radius: 8px;
-  font-size: 13px; color: var(--ac-blue); font-weight: 500; line-height: 1.5;
+  background: rgba(255,255,255,0.06); border-radius: 8px;
+  font-size: 13px; color: rgba(255,255,255,0.65); font-weight: 500; line-height: 1.5;
 }
 
 /* ═══════════════════════════════════════
@@ -647,7 +647,7 @@ footer { background: var(--dk-wm); border-top: 1px solid rgba(255,255,255,0.05);
   .cl-inner blockquote { font-size: 18px; }
   .truths-grid { grid-template-columns: 1fr; }
   .ux-ai-cols { grid-template-columns: 1fr; }
-  .ux-ai-col:first-child { border-right: none; border-bottom: 1px solid var(--divider); }
+  .ux-ai-col:first-child { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.11); }
   #antes { padding: 64px 24px; }
 }
 </style>
@@ -1324,61 +1324,63 @@ footer { background: var(--dk-wm); border-top: 1px solid rgba(255,255,255,0.05);
   <div class="container">
     <div class="reveal">
       <div class="eyebrow">📚 Sección 7</div>
-      <h2 class="section-h2">Recursos, No Tareas</h2>
-      <p class="section-lead">No son obligaciones. Son invitaciones. Toma lo que te llama ahora, deja lo que no. El orden no importa.</p>
+      <h2 class="section-h2">Nuevos Patrones de UI con AI</h2>
+      <p class="section-lead">Lo que toca aprender ahora son los patrones. Cómo se diseñan interfaces que integran inteligencia de verdad. Estas son las mejores referencias.</p>
     </div>
     <div class="recursos-grid">
       <div class="recs-card reveal d1">
-        <div class="recs-cat">Fundamentos AI</div>
-        <h3>Entender AI Básico</h3>
+        <div class="recs-cat">Biblioteca de Patrones</div>
+        <h3>🔍 Shape of AI</h3>
         <ul class="recs-items">
-          <li>AI for Everyone — Andrew Ng<span class="rmeta">Coursera · Gratis · 4 horas</span></li>
-          <li>What is Machine Learning? — IBM<span class="rmeta">Video · 5 min</span></li>
+          <li><a href="https://www.shapeof.ai/" target="_blank" rel="noopener">shapeof.ai</a><span class="rmeta">Patrones de interfaces conversacionales y AI</span></li>
         </ul>
       </div>
       <div class="recs-card reveal d2">
-        <div class="recs-cat">Frameworks HCAI</div>
-        <h3>Human-Centered AI</h3>
+        <div class="recs-cat">Galería de Patrones</div>
+        <h3>🧠 Aiverse Design Patterns</h3>
         <ul class="recs-items">
-          <li>Microsoft HAX Toolkit<span class="rmeta">Free · Online</span></li>
-          <li>People + AI Guidebook — Google<span class="rmeta">PDF Gratis</span></li>
+          <li><a href="https://www.aiverse.design/browse" target="_blank" rel="noopener">aiverse.design</a><span class="rmeta">Explorar patrones de diseño para AI</span></li>
         </ul>
       </div>
       <div class="recs-card reveal d3">
-        <div class="recs-cat">Ética y Regulación</div>
-        <h3>Diseño Responsable</h3>
+        <div class="recs-cat">Referencia de Patrones</div>
+        <h3>🎯 AI UX Patterns</h3>
         <ul class="recs-items">
-          <li>AI Act — Comisión Europea<span class="rmeta">Marco regulatorio · 2024</span></li>
-          <li>Fairness in ML — Google<span class="rmeta">Short Course · Gratis</span></li>
+          <li><a href="https://www.aiuxpatterns.com/" target="_blank" rel="noopener">aiuxpatterns.com</a><span class="rmeta">Catálogo de patrones UX específicos para AI</span></li>
         </ul>
       </div>
       <div class="recs-card reveal d1">
-        <div class="recs-cat">Conversación y UX</div>
-        <h3>Research + Documentación</h3>
+        <div class="recs-cat">Patrones con React</div>
+        <h3>🎨 AI UI Patterns</h3>
         <ul class="recs-items">
-          <li>NN/g AI UX Research<span class="rmeta">Nielsen Norman Group</span></li>
-          <li>Figma AI Documentation<span class="rmeta">Guía oficial</span></li>
-          <li>Analiza 5 chatbots: diálogos y fallbacks<span class="rmeta">Práctica directa</span></li>
+          <li><a href="https://www.patterns.dev/react/ai-ui-patterns/" target="_blank" rel="noopener">patterns.dev</a><span class="rmeta">Implementación de patrones AI en React</span></li>
         </ul>
       </div>
       <div class="recs-card reveal d2">
-        <div class="recs-cat">Prompt Engineering</div>
-        <h3>El Prompt como Interfaz</h3>
+        <div class="recs-cat">Herramienta AI</div>
+        <h3>💡 UXPilot AI</h3>
         <ul class="recs-items">
-          <li>Experimenta en ChatGPT / Claude<span class="rmeta">Práctica directa</span></li>
-          <li>Crea tu "prompt cookbook"<span class="rmeta">Tu colección personal</span></li>
+          <li><a href="https://uxpilot.ai/es" target="_blank" rel="noopener">uxpilot.ai</a><span class="rmeta">Genera y analiza interfaces con AI</span></li>
         </ul>
       </div>
       <div class="recs-card reveal d3">
-        <div class="recs-cat">Creadores a Seguir</div>
-        <h3>Referentes del Campo</h3>
+        <div class="recs-cat">Framework de Diseño</div>
+        <h3>🤖 Agentic Path Design</h3>
         <ul class="recs-items">
-          <li>Micaela (UX Design for AI)<span class="rmeta">Contenido en español</span></li>
-          <li>Patricia Reiners<span class="rmeta">AI + UX</span></li>
-          <li>Johan Villalba<span class="rmeta">Diseño e IA</span></li>
-          <li>The Future of AI<span class="rmeta">Podcast</span></li>
+          <li><a href="https://www.agenticpathdesign.com/" target="_blank" rel="noopener">agenticpathdesign.com</a><span class="rmeta">Diseño para sistemas agénticos</span></li>
         </ul>
       </div>
+      <div class="recs-card reveal d1">
+        <div class="recs-cat">Artículo · 2025</div>
+        <h3>🛠 Smashing Magazine</h3>
+        <ul class="recs-items">
+          <li><a href="https://www.smashingmagazine.com/2025/07/design-patterns-ai-interfaces/" target="_blank" rel="noopener">Design Patterns for AI Interfaces</a><span class="rmeta">Lectura recomendada · smashingmagazine.com</span></li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="mmet-note reveal" style="margin-top:32px;">
+      Si necesitas ubicarte mejor con palabras clave, conceptos o términos base, también puedes complementar esta guía con mi <strong><a href="https://carolinabarbosaux.notion.site/Glosario-UX-para-Inteligencia-Artificial-2b4ca117a7a9806ca2c4dec8f9d978a4" target="_blank" rel="noopener">Glosario de UX for AI</a></strong>. Te puede ayudar mucho cuando empieces a encontrarte con lenguaje nuevo y quieras aterrizarlo rápido.
     </div>
   </div>
 </section>
@@ -1388,17 +1390,16 @@ footer { background: var(--dk-wm); border-top: 1px solid rgba(255,255,255,0.05);
   <div class="cl-blob"></div>
   <div class="cl-inner reveal">
     <blockquote>
-      El mejor AI Designer no será quien sepa más frameworks.<br/>
-      Será quien mantenga la <em>profunda empatía humana</em> de un UX Designer,<br/>
-      mientras abraza las <em>nuevas capacidades</em> que AI trae.
+      El mejor AI Designer no sera quien conozca mas herramientas.<br/>
+      Sera quien <em>mantenga la profundidad humana</em> de un buen diseño de UX mientras aprende a trabajar con sistemas mas vivos, mas adaptativos y mas complejos.
     </blockquote>
-    <p>Tú tienes el primero. Ahora estás construyendo el segundo.</p>
+    
     <button class="btn-dk-primary" onclick="goTo('partida')">
       Comenzar desde el principio
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
     </button>
     <div class="cl-divider"></div>
-    <p class="cl-byline">UX for AI Guide · Hecho con cuidado para diseñadores en transición · 2026</p>
+    <p class="cl-byline">UX for AI Guide · Este recurso crece contigo, si tienes algún comentario, escríbeme a contacto@carolinabarbosa.es</p>
   </div>
 </section>
 
